@@ -610,11 +610,3 @@ input:checked + .slider:before {
   background: rgba(30, 40, 60, 0.18);
   color: var(--negro);
 }
-.logo-img {
-  height: 48px;
-  width: auto;
-  display: block;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  background: #111;
-}

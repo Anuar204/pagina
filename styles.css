@@ -477,19 +477,116 @@ body {
     height: 36px;
   }
 }
+body {
+  /* Asegúrate de que tu body no tenga background repetido aquí */
+  background: linear-gradient(135deg, #00b4d8 0%, #48cae4 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Sección contacto centrada y espaciosa */
+#contacto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  padding-top: 40px;
+}
+
+#contacto h2 {
+  color: #1D3557;
+  font-size: 2.6em;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+/* Tarjeta del formulario */
+.form-card {
+  background: #e8f7fb;
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(29, 53, 87, 0.12);
+  padding: 40px 36px 32px 36px;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Inputs y textarea */
+.form-card input,
+.form-card textarea {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  border: 1.5px solid #b3d8f6;
+  background: #fff;
+  font-size: 1.1em;
+  color: #1D3557;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.form-card input:focus,
+.form-card textarea:focus {
+  border-color: #1D3557;
+  box-shadow: 0 0 0 2px #b3d8f6;
+}
+
+/* Botón enviar */
+.form-card button {
+  width: 100%;
+  padding: 15px 0;
+  background: #f0c674;
+  color: #1D3557;
+  font-weight: bold;
+  font-size: 1.13em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(80, 80, 80, 0.07);
+}
+
+.form-card button:hover {
+  background: #ffe3a3;
+}
+
+/* Enlace profesional */
 .enlace-cita {
-  display: inline-block;
+  display: block;
+  text-align: center;
   margin-top: 18px;
-  padding: 12px 28px;
+  padding: 13px 0;
   background: #1D3557;
   color: #fff;
-  border-radius: 7px;
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 1.08em;
   text-decoration: none;
-  transition: background 0.2s;
+  font-size: 1.08em;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 10px rgba(29, 53, 87, 0.10);
 }
 .enlace-cita:hover {
-  background: #003366;
-  color: #ffe7a9;
+  background: #274472;
+  color: #f0c674;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-card {
+    padding: 18px 2vw 18px 2vw;
+    max-width: 97vw;
+  }
+  #contacto h2 {
+    font-size: 2em;
+  }
 }

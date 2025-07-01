@@ -610,23 +610,11 @@ input:checked + .slider:before {
   background: rgba(30, 40, 60, 0.18);
   color: var(--negro);
 }
-/* Puedes agregar más reglas para otros elementos si lo deseas */
-.logo-header {
-  display: flex;
-  align-items: center;
-  margin-right: 18px;
-}
-
 .logo-img {
-  height: 48px;    /* Puedes ajustar el tamaño aquí */
+  height: 48px;
   width: auto;
   display: block;
-  border-radius: 8px; /* Si quieres esquinas redondeadas */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Opcional: sombra */
-  background: #111; /* Opcional: fondo para logos transparentes */
-}
-@media (max-width: 700px) {
-  .logo-img {
-    height: 36px;
-  }
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background: #111;
 }

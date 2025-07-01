@@ -142,86 +142,6 @@ body {
     font-size: 1.3em;
   }
 }
-#contacto {
-  padding: 70px 20px;
-  background: linear-gradient(135deg, var(--cian) 60%, #43c2ed 100%);
-  color: var(--negro);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-#contacto::before {
-  content: "";
-  position: absolute;
-  top: -40px;
-  right: -80px;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, #f0c67455 0%, transparent 80%);
-  z-index: 0;
-  filter: blur(1px);
-}
-
-#contacto h2 {
-  font-size: 2.2em;
-  color: var(--azul-oscuro);
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-}
-
-#contacto form {
-  background: rgba(255,255,255,0.88);
-  border-radius: 16px;
-  box-shadow: 0 8px 28px rgba(30, 30, 60, 0.09);
-  padding: 40px 28px 28px 28px;
-  max-width: 420px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  position: relative;
-  z-index: 1;
-}
-
-#contacto input,
-#contacto textarea {
-  padding: 12px 14px;
-  border-radius: 7px;
-  border: 1.5px solid #b3e6f6;
-  font-size: 1em;
-  font-family: var(--fuente);
-  outline: none;
-  transition: border-color 0.22s;
-  background: #f8fcff;
-  color: var(--negro);
-  resize: none;
-}
-
-#contacto input:focus,
-#contacto textarea:focus {
-  border-color: var(--azul-oscuro);
-  background: #e7f7ff;
-}
-
-#contacto button {
-  background-color: var(--dorado);
-  color: #212121;
-  padding: 13px 0;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1.09em;
-  cursor: pointer;
-  margin-top: 12px;
-  box-shadow: 0 2px 8px rgba(80, 80, 80, 0.08);
-  transition: background 0.2s, transform 0.2s;
-}
-
-#contacto button:hover {
-  background: #ffe7a9;
-  transform: scale(1.04);
-}
 
 /* Responsive para móviles */
 @media*
@@ -556,4 +476,20 @@ body {
   .logo-img {
     height: 36px;
   }
+}
+.enlace-cita {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 28px;
+  background: #1D3557;
+  color: #fff;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 1.08em;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.enlace-cita:hover {
+  background: #003366;
+  color: #ffe7a9;
 }

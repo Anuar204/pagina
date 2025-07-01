@@ -1,0 +1,632 @@
+
+:root {
+  --azul-oscuro: #1D3557;
+  --cian: #00B4D8;
+  --dorado: #f0c674;
+  --blanco: #f1faee;
+  --gris: #A8A8A8;
+  --negro: #212121;
+  --fuente: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  background-color: var(--blanco);
+  color: var(--negro);
+  
+}
+
+#hero {
+  /* Fondo azul nocturno con degradado */
+  background: linear-gradient(120deg, #0b1d3a 0%, #23395d 100%);
+  color: var(--blanco);
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 0 0 15px 15px;
+  position: relative;
+  overflow: hidden; /* Para que las estrellitas no sobresalgan */
+}
+
+/* Estrellitas con pseudo-elemento */
+#hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  /* Patrón de estrellitas usando radial-gradient */
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1.2px, transparent 1.2px),
+    radial-gradient(white 0.8px, transparent 0.8px);
+  background-size: 90px 90px, 140px 140px, 180px 180px;
+  background-position: 
+    10px 20px,
+    50px 80px,
+    120px 40px;
+  opacity: 0.6;
+}
+#hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.servicios-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.servicios-grid article {
+  background-color: var(--gris);
+  color: var(--negro);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.servicios-grid article:hover {
+  transform: translateY(-5px);
+}
+
+#sobre {
+  background: linear-gradient(135deg, #1d3557 60%, #263559 100%);
+  min-height: 430px;
+  padding: 80px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+#sobre .sobre-card {
+  background: rgba(255,255,255,0.07);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(30, 30, 60, 0.17);
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 48px 36px;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(2.5px);
+  border: 1.5px solid rgba(255,255,255,0.13);
+  text-align: left;
+  color: var(--blanco);
+  font-size: 1.18em;
+  line-height: 1.7;
+  font-family: var(--fuente);
+  transition: box-shadow 0.25s;
+}
+#sobre .sobre-card:hover {
+  box-shadow: 0 14px 40px 0 rgba(30,30,60,0.22);
+}
+#sobre .sobre-card h2 {
+  font-size: 2.1em;
+  margin-bottom: 18px;
+  color: var(--dorado);
+  letter-spacing: 0.8px;
+  text-align: center;
+}
+#sobre .sobre-card p {
+  margin: 0;
+  color: var(--blanco);
+}
+#sobre .sobre-card .sobre-destacado {
+  display: block;
+  font-size: 1.18em;
+  font-weight: 600;
+  color: #ffe8b3;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+@media (max-width: 680px) {
+  #sobre {
+    padding: 40px 3vw;
+    min-height: 0;
+  }
+  #sobre .sobre-card {
+    padding: 26px 7vw;
+    font-size: 1em;
+  }
+  #sobre .sobre-card h2 {
+    font-size: 1.3em;
+  }
+}
+#contacto {
+  padding: 70px 20px;
+  background: linear-gradient(135deg, var(--cian) 60%, #43c2ed 100%);
+  color: var(--negro);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#contacto::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -80px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, #f0c67455 0%, transparent 80%);
+  z-index: 0;
+  filter: blur(1px);
+}
+
+#contacto h2 {
+  font-size: 2.2em;
+  color: var(--azul-oscuro);
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+#contacto form {
+  background: rgba(255,255,255,0.88);
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(30, 30, 60, 0.09);
+  padding: 40px 28px 28px 28px;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+#contacto input,
+#contacto textarea {
+  padding: 12px 14px;
+  border-radius: 7px;
+  border: 1.5px solid #b3e6f6;
+  font-size: 1em;
+  font-family: var(--fuente);
+  outline: none;
+  transition: border-color 0.22s;
+  background: #f8fcff;
+  color: var(--negro);
+  resize: none;
+}
+
+#contacto input:focus,
+#contacto textarea:focus {
+  border-color: var(--azul-oscuro);
+  background: #e7f7ff;
+}
+
+#contacto button {
+  background-color: var(--dorado);
+  color: #212121;
+  padding: 13px 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.09em;
+  cursor: pointer;
+  margin-top: 12px;
+  box-shadow: 0 2px 8px rgba(80, 80, 80, 0.08);
+  transition: background 0.2s, transform 0.2s;
+}
+
+#contacto button:hover {
+  background: #ffe7a9;
+  transform: scale(1.04);
+}
+
+/* Responsive para móviles */
+@media*
+
+/* ==================== Responsive: pantallas móviles ==================== */
+@media screen and (max-width: 768px) {
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #hero {
+    padding: 60px 15px;
+  }
+
+  #hero h2 {
+    font-size: 2em;
+  }
+
+  .servicios-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #sobre, #contacto {
+    padding: 40px 15px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  footer {
+    font-size: 0.9em;
+  }
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 32px;
+  height: 32px;
+}
+/* ==================== Botón Flotante Chatbot ==================== */
+.chatbot-float {
+  position: fixed;
+  bottom: 95px; /* Encima del botón de WhatsApp */
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #0078D4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: transform 0.2s ease;
+  animation: chatbotBounce 1s ease-in-out;
+}
+
+.chatbot-float:hover {
+  transform: scale(1.1);
+}
+
+.chatbot-float img {
+  width: 32px;
+  height: 32px;
+}
+
+/* ✨ Animación suave al aparecer */
+@keyframes chatbotBounce {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 📱 Responsive: ajustar tamaño en pantallas pequeñas */
+@media screen and (max-width: 480px) {
+  .chatbot-float {
+    width: 50px;
+    height: 50px;
+    bottom: 85px;
+  }
+
+  .chatbot-float img {
+    width: 28px;
+    height: 28px;
+  }
+}
+.chatbot-float {
+  position: fixed;
+  bottom: 95px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #0078D4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: transform 0.2s ease;
+  animation: chatbotBounce 1s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+  position: fixed;
+}
+
+.chatbot-float img {
+  width: 32px;
+  height: 32px;
+}
+
+.chatbot-float:hover {
+  transform: scale(1.1);
+}
+
+.chatbot-label {
+  position: absolute;
+  right: 70px;
+  background-color: #0078D4;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.chatbot-float:hover .chatbot-label {
+  opacity: 1;
+}
+
+/* Solo mostrar en pantallas grandes */
+@media screen and (max-width: 768px) {
+  .chatbot-label {
+    display: none;
+  }
+}
+/* ==================== HEADER MODERNO ==================== */
+.main-header {
+  background: linear-gradient(90deg, var(--azul-oscuro) 0%, var(--cian) 100%);
+  color: var(--blanco);
+  padding: 20px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.main-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.main-header h1 {
+  font-family: var(--fuente);
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.main-header nav {
+  position: relative;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+.nav-links li a:hover {
+  background: var(--dorado);
+  color: var(--negro);
+}
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 20px;
+  color: var(--blanco);
+  user-select: none;
+}
+#menu-toggle {
+  display: none;
+}
+
+/* Responsive: menú hamburguesa */
+@media (max-width: 900px) {
+  .main-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* Responsive: menú desplegable en móvil */
+@media (max-width: 700px) {
+  .main-header .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-links {
+    flex-direction: column;
+    background: var(--azul-oscuro);
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    padding: 20px 0;
+    display: none;
+    z-index: 10;
+  }
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+  .menu-icon {
+    display: block;
+  }
+}
+#servicios {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#servicios h2 {
+  font-size: 2.2em;
+  color: #2a2a2a;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.servicios-grid article {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicios-grid article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.servicios-grid h3 {
+  font-size: 1.4em;
+  color: #0077cc;
+  margin-bottom: 15px;
+}
+
+.servicios-grid p {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  #servicios h2 {
+    font-size: 1.8em;
+  }
+  .servicios-grid {
+    gap: 20px;
+  }
+}
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 22px;
+  right: 32px;
+  z-index: 50;
+  user-select: none;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #d0d0d0;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 3px;
+  background-color: #fff;
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+}
+input:checked + .slider {
+  background-color: #1d3557;
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+  background: #ffe066;
+}
+.theme-label {
+  font-size: 1.2em;
+  transition: color 0.3s;
+}
+.dark-mode {
+  --blanco: #171d2b;
+  --negro: #f1faee;
+  --gris: #33415c;
+  --azul-oscuro: #10182a;
+  --cian: #2491a8;
+  background: var(--blanco);
+  color: var(--negro);
+}
+.dark-mode #hero {
+  background: linear-gradient(120deg, #0b1d3a 0%, #23395d 100%);
+}
+.dark-mode #sobre {
+  background: linear-gradient(135deg, #0b1d3a 60%, #23395d 100%);
+}
+.dark-mode .sobre-card {
+  background: rgba(30, 40, 60, 0.18);
+  color: var(--negro);
+}
+/* Puedes agregar más reglas para otros elementos si lo deseas */
+.logo-header {
+  display: flex;
+  align-items: center;
+  margin-right: 18px;
+}
+
+.logo-img {
+  height: 48px;    /* Puedes ajustar el tamaño aquí */
+  width: auto;
+  display: block;
+  border-radius: 8px; /* Si quieres esquinas redondeadas */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Opcional: sombra */
+  background: #111; /* Opcional: fondo para logos transparentes */
+}
+@media (max-width: 700px) {
+  .logo-img {
+    height: 36px;
+  }
+}

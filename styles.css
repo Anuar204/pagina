@@ -5,19 +5,156 @@
   --blanco: #f1faee;
   --gris: #A8A8A8;
   --negro: #212121;
-  --fuente: 'Inter', sans-serif;
+  --fuente: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 
+/* ==================== RESET Y GENERALES ==================== */
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
-
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 body {
   margin: 0;
   font-family: var(--fuente);
   background: linear-gradient(135deg, #00b4d8 0%, #48cae4 100%);
   min-height: 100vh;
   color: var(--negro);
+  transition: background 0.3s, color 0.3s;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* ==================== DARK MODE ==================== */
+.dark-mode {
+  background: linear-gradient(135deg, #181e28 0%, #232b39 100%);
+  color: var(--blanco);
+}
+.dark-mode .main-header {
+  background: linear-gradient(90deg, #121a26 0%, #164c5c 100%);
+  color: var(--blanco);
+}
+.dark-mode .nav-links li a {
+  color: var(--blanco);
+}
+.dark-mode .nav-links li a:hover {
+  background: var(--dorado);
+  color: var(--negro);
+}
+.dark-mode #hero {
+  background: linear-gradient(120deg, #232a3b 0%, #2b3b54 100%);
+  color: var(--blanco);
+}
+.dark-mode #servicios {
+  background: #242b33;
+  color: var(--blanco);
+}
+.dark-mode .servicios-grid article {
+  background: #222a36;
+  color: var(--blanco);
+}
+.dark-mode #sobre {
+  background: linear-gradient(135deg, #202c44 60%, #253049 100%);
+}
+.dark-mode #sobre .sobre-card {
+  background: rgba(30,37,59,0.25);
+  color: var(--blanco);
+}
+.dark-mode #contacto {
+  background: #232b39;
+}
+.dark-mode .form-card {
+  background: #181e28;
+  color: var(--blanco);
+  border: 1px solid #2a3344;
+}
+.dark-mode .form-card input,
+.dark-mode .form-card textarea {
+  background: #202b3d;
+  color: #f1faee;
+  border-color: #384967;
+}
+.dark-mode .form-card button[type="submit"] {
+  background: var(--cian);
+  color: #181e28;
+}
+.dark-mode .form-card button[type="submit"]:hover {
+  background: var(--dorado);
+  color: var(--negro);
+}
+.dark-mode .enlace-cita {
+  background: var(--cian);
+  color: #181e28;
+}
+.dark-mode .enlace-cita:hover {
+  background: var(--dorado);
+  color: var(--negro);
+}
+.dark-mode footer {
+  background: #0f1522;
+  color: #f1faee;
+}
+
+/* ==================== HEADER MODERNO ==================== */
+.main-header {
+  background: linear-gradient(90deg, var(--azul-oscuro) 0%, var(--cian) 100%);
+  color: var(--blanco);
+  padding: 20px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.main-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.main-header h1 {
+  font-family: var(--fuente);
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.main-header nav {
+  position: relative;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+.nav-links li a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.2s, background 0.2s;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+.nav-links li a:hover {
+  background: var(--dorado);
+  color: var(--negro);
+}
+.menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: 20px;
+  color: var(--blanco);
+  user-select: none;
+}
+#menu-toggle {
+  display: none;
 }
 
 /* ==================== HERO ==================== */
@@ -25,7 +162,7 @@ body {
   background: linear-gradient(120deg, #0b1d3a 0%, #23395d 100%);
   color: var(--blanco);
   text-align: center;
-  padding: 100px 20px;
+  padding: 100px 20px 70px 20px;
   border-radius: 0 0 15px 15px;
   position: relative;
   overflow: hidden;
@@ -51,13 +188,40 @@ body {
   position: relative;
   z-index: 1;
 }
+#hero h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+#hero p {
+  font-size: 1.25em;
+  margin-bottom: 38px;
+}
+#hero button {
+  background: var(--dorado);
+  color: var(--negro);
+  border: none;
+  padding: 15px 38px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+}
+#hero button:hover {
+  background: #fff7db;
+  color: var(--azul-oscuro);
+  transform: translateY(-2px) scale(1.04);
+}
 
 /* ==================== SERVICIOS ==================== */
 #servicios {
   padding: 60px 20px;
   background-color: #f9f9f9;
   text-align: center;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: var(--fuente);
 }
 #servicios h2 {
   font-size: 2.2em;
@@ -73,14 +237,14 @@ body {
   margin: 0 auto;
 }
 .servicios-grid article {
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 10px;
   padding: 30px 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .servicios-grid article:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.02);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 .servicios-grid h3 {
@@ -147,95 +311,89 @@ body {
   text-align: center;
 }
 
-/* ==================== HEADER MODERNO ==================== */
-.main-header {
-  background: linear-gradient(90deg, var(--azul-oscuro) 0%, var(--cian) 100%);
-  color: var(--blanco);
-  padding: 20px 0;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+/* ==================== FORMULARIO DE CONTACTO ==================== */
+#contacto {
+  padding: 60px 20px 40px 20px;
+  background: #f9f9f9;
 }
-.main-header .container {
+#contacto h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 35px;
+  color: var(--azul-oscuro);
+}
+.form-card {
+  background: #fff;
+  max-width: 420px;
+  margin: 0 auto 25px auto;
+  padding: 28px 28px 22px 28px;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
 }
-.main-header h1 {
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.form-card input,
+.form-card textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1.2px solid #b1c9d7;
+  border-radius: 7px;
+  font-size: 1em;
   font-family: var(--fuente);
-  font-weight: 700;
-  font-size: 2rem;
-  margin: 0;
-  letter-spacing: 1px;
+  background: #f7fbfd;
+  color: var(--negro);
+  resize: none;
+  transition: border-color 0.2s;
 }
-.main-header nav {
-  position: relative;
+.form-card input:focus,
+.form-card textarea:focus {
+  border-color: var(--cian);
+  outline: none;
 }
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-.nav-links li a {
+.form-card button[type="submit"] {
+  background: var(--azul-oscuro);
   color: var(--blanco);
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 500;
-  transition: color 0.2s;
-  padding: 6px 12px;
-  border-radius: 4px;
+  border: none;
+  padding: 14px 0;
+  border-radius: 7px;
+  font-size: 1.07em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 4px;
+  box-shadow: 0 2px 8px rgba(29, 53, 87, 0.10);
 }
-.nav-links li a:hover {
-  background: var(--dorado);
+.form-card button[type="submit"]:hover {
+  background: var(--cian);
   color: var(--negro);
 }
-.menu-icon {
-  display: none;
-  font-size: 2rem;
-  cursor: pointer;
-  margin-left: 20px;
-  color: var(--blanco);
-  user-select: none;
+.enlace-cita {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  padding: 13px 0;
+  background: #1D3557;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.08em;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 10px rgba(29, 53, 87, 0.10);
 }
-#menu-toggle {
-  display: none;
-}
-@media (max-width: 900px) {
-  .main-header .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-}
-@media (max-width: 700px) {
-  .main-header .container {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .nav-links {
-    flex-direction: column;
-    background: var(--azul-oscuro);
-    position: absolute;
-    top: 50px;
-    right: 0;
-    left: 0;
-    width: 100vw;
-    padding: 20px 0;
-    display: none;
-    z-index: 10;
-  }
-  #menu-toggle:checked ~ .nav-links {
-    display: flex;
-  }
-  .menu-icon {
-    display: block;
-  }
+.enlace-cita:hover {
+  background: #274472;
+  color: #f0c674;
 }
 
+/* ==================== BOTONES FLOTANTES ==================== */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -258,10 +416,9 @@ body {
 .whatsapp-float:hover {
   transform: scale(1.1);
 }
-
 .chatbot-float {
   position: fixed;
-  bottom: 95px; /* Encima del botón de WhatsApp */
+  bottom: 95px;
   right: 20px;
   width: 60px;
   height: 60px;
@@ -312,53 +469,53 @@ body {
 @media screen and (max-width: 768px) {
   .chatbot-label { display: none; }
 }
-/* Responsive para pantallas pequeñas */
-@media screen and (max-width: 480px) {
-  .whatsapp-float, .chatbot-float {
-    width: 50px;
-    height: 50px;
-  }
-  .chatbot-float { bottom: 85px; }
-}
 
-/* ==================== ENLACE CITA ==================== */
-.enlace-cita {
-  display: block;
-  text-align: center;
-  margin-top: 18px;
-  padding: 13px 0;
-  background: #1D3557;
+/* ==================== FOOTER ==================== */
+footer {
+  background: #1d3557;
   color: #fff;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1.08em;
-  transition: background 0.2s, color 0.2s;
-  box-shadow: 0 2px 10px rgba(29, 53, 87, 0.10);
-}
-.enlace-cita:hover {
-  background: #274472;
-  color: #f0c674;
+  text-align: center;
+  padding: 32px 10px 18px 10px;
+  font-size: 1em;
+  border-radius: 18px 18px 0 0;
+  margin-top: 30px;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+  transition: background 0.3s, color 0.3s;
 }
 
-/* ==================== FORM Y CONTACTO ==================== */
-@media (max-width: 600px) {
-  #servicios h2 {
-    font-size: 1.8em;
-  }
-  .servicios-grid {
-    gap: 20px;
-  }
-  .form-card {
-    padding: 18px 2vw 18px 2vw;
-    max-width: 97vw;
-  }
-  #contacto h2 {
-    font-size: 2em;
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 900px) {
+  .main-header .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
-
-/* ==================== SOBRE Responsive ==================== */
+@media (max-width: 700px) {
+  .main-header .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-links {
+    flex-direction: column;
+    background: var(--azul-oscuro);
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    padding: 20px 0;
+    display: none;
+    z-index: 10;
+  }
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+  .menu-icon {
+    display: block;
+  }
+}
 @media (max-width: 680px) {
   #sobre {
     padding: 40px 3vw;
@@ -372,39 +529,35 @@ body {
     font-size: 1.3em;
   }
 }
-
-/* ==================== HERO Responsive ==================== */
-@media screen and (max-width: 768px) {
-  header nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-  #hero {
-    padding: 60px 15px;
-  }
-  #hero h2 {
-    font-size: 2em;
+@media (max-width: 600px) {
+  #servicios h2 {
+    font-size: 1.8em;
   }
   .servicios-grid {
-    flex-direction: column;
     gap: 20px;
   }
-  #sobre, #contacto {
-    padding: 40px 15px;
+  .form-card {
+    padding: 18px 2vw 18px 2vw;
+    max-width: 97vw;
   }
-  form {
-    width: 100%;
+  #contacto h2 {
+    font-size: 1.5em;
   }
-  footer {
-    font-size: 0.9em;
+  #hero {
+    padding: 60px 8px;
   }
 }
-
-/* ==================== BOTONES FLOTANTES Responsive ==================== */
 @media screen and (max-width: 480px) {
-  .chatbot-float {
+  .whatsapp-float, .chatbot-float {
     width: 50px;
     height: 50px;
-    bottom: 85px;
+  }
+  .chatbot-float { bottom: 85px; }
+  #hero h2 {
+    font-size: 1.2em;
+  }
+  footer {
+    font-size: 0.95em;
+    padding: 18px 6px;
   }
 }

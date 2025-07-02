@@ -1,62 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<cabeza>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Éxodo Digital</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Desarrollo web profesional, landing pages, tiendas online y presencia digital para tu negocio." />
+  <title>Éxodo Digital</title>
 
-<!-- Fuente personalizada -->
- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="hoja de estilo">
+  <!-- Fuente personalizada -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- Estilos personalizados -->
- <link rel="hoja de estilo" href="styles.css" />
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="styles.css" />
 
-<!-- Ícono (opcional) -->
- <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
-</cabeza>
-
-
-<script>
-  const toggle = document.getElementById('theme-toggle');
-  const root = document.documentElement;
-
-  // Guardar preferencia
-  if (localStorage.getItem('theme') === 'dark') {
-    root.classList.add('dark-mode');
-    toggle.checked = true;
-  }
-  toggle.addEventListener('change', function () {
-    if (this.checked) {
-      root.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.classList.remove('dark-mode');
-      localStorage.setItem('theme', 'light');
-    }
-  });
-</script>
+  <!-- Ícono (opcional) -->
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+</head>
 
 <body>
-
+  <!-- Botones flotantes -->
+  <a href="https://wa.me/3132056515" class="whatsapp-float" target="_blank" rel="noopener">
+    <img src="https://cdn.jsdelivr.net/gh/rafaelbotazini/floating-whatsapp/whatsapp-icon.png" alt="WhatsApp" />
+  </a>
+  <a href="https://www.chatbase.co/chatbot-iframe/eIrzI-2lWZ2UNDvJmKXhr" class="chatbot-float" target="_blank" rel="noopener">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/chatbot.png" alt="Asistente Virtual" />
+    <span class="chatbot-label">¿Tienes dudas?</span>
+  </a>
 
   <!-- Header MODERNO inicia aquí -->
   <header class="main-header">
     <div class="container">
       <div class="logo-header">
+        <!-- Puedes poner aquí tu logo si lo tienes -->
       </div>
-      
       <h1>Éxodo Digital</h1>
       <nav>
         <input type="checkbox" id="menu-toggle" />
-        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <label for="menu-toggle" class="menu-icon" aria-label="Abrir menú">&#9776;</label>
         <ul class="nav-links">
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#sobre">Nosotros</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
-    
+      <!-- Botón de modo oscuro (opcional) -->
+      <div style="margin-left:16px;">
+        <input type="checkbox" id="theme-toggle" style="display:none;" />
+        <label for="theme-toggle" title="Modo oscuro" style="cursor:pointer;">
+          <span id="theme-icon" style="font-size:1.5rem;">🌙</span>
+        </label>
+      </div>
+    </div>
   </header>
   <!-- Header MODERNO termina aquí -->
 
@@ -64,7 +58,9 @@
     <section id="hero">
       <h2>Impulsamos tu presencia digital</h2>
       <p>Páginas web modernas, efectivas y adaptadas a tu negocio.</p>
-      <button>Solicita tu demo</button>
+      <a href="#contacto">
+        <button>Solicita tu demo</button>
+      </a>
     </section>
 
     <section id="servicios">
@@ -76,17 +72,14 @@
         </article>
         <article>
           <h3>Tiendas Online Autoadministrables</h3>
-          <p>Desarrollamos plataformas e-commerce accesibles, funcionales y alineadas con tu marca. Fácil de gestionar,
-            potente para crecer.</p>
+          <p>Desarrollamos plataformas e-commerce accesibles, funcionales y alineadas con tu marca. Fácil de gestionar, potente para crecer.</p>
         </article>
         <article>
           <h3>Web Corporativa con Propósito</h3>
-          <p>Impulsa tu presencia digital con sitios profesionales, accesibles y diseñados para comunicar confianza y
-            autenticidad.</p>
+          <p>Impulsa tu presencia digital con sitios profesionales, accesibles y diseñados para comunicar confianza y autenticidad.</p>
         </article>
       </div>
     </section>
-
 
     <section id="sobre">
       <div class="sobre-card">
@@ -94,49 +87,68 @@
         <p>
           <span class="sobre-destacado">Conectamos propósito, diseño y tecnología.</span>
           <br><br>
-          Éxodo Digital nace con una visión clara: democratizar el acceso a soluciones digitales profesionales,
-          auténticas y funcionales. Nos especializamos en el desarrollo de páginas web que no solo transmiten tu
-          mensaje, sino que lo convierten en una experiencia accesible, armoniosa y memorable.
+          Éxodo Digital nace con una visión clara: democratizar el acceso a soluciones digitales profesionales, auténticas y funcionales. Nos especializamos en el desarrollo de páginas web que no solo transmiten tu mensaje, sino que lo convierten en una experiencia accesible, armoniosa y memorable.
           <br><br>
-          Trabajamos desde la comprensión profunda de cada proyecto, con un enfoque humano y estratégico. Nuestra meta
-          es que tu presencia en línea hable con fuerza, claridad y propósito.
+          Trabajamos desde la comprensión profunda de cada proyecto, con un enfoque humano y estratégico. Nuestra meta es que tu presencia en línea hable con fuerza, claridad y propósito.
         </p>
       </div>
     </section>
 
     <section id="contacto">
-  <h2>Contáctanos</h2>
-  <div class="form-card">
-    <form action="https://formsubmit.co/kingaczinokodigo@gmail.com" method="POST" autocomplete="off">
-      <input type="hidden" name="_next" value="https://anuar204.github.io/cru/gracias.html">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="nombre" placeholder="Tu nombre" required />
-      <input type="email" name="correo" placeholder="Correo electrónico" required />
-      <textarea name="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
-      <button type="submit">Enviar mensaje</button>
-    </form>
-    <a href="https://app.acuityscheduling.com/schedule.php?owner=36227832" target="_blank" class="enlace-cita">
-      Reserva una cita profesional
-    </a>
-  </div>
-</section>
+      <h2>Contáctanos</h2>
+      <div class="form-card">
+        <form action="https://formsubmit.co/kingaczinokodigo@gmail.com" method="POST" autocomplete="off">
+          <input type="hidden" name="_next" value="https://anuar204.github.io/cru/gracias.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="nombre" placeholder="Tu nombre" required />
+          <input type="email" name="correo" placeholder="Correo electrónico" required />
+          <textarea name="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+          <button type="submit">Enviar mensaje</button>
+        </form>
+        <a href="https://app.acuityscheduling.com/schedule.php?owner=36227832" target="_blank" class="enlace-cita">
+          Reserva una cita profesional
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>© 2025 Éxodo Digital Anuar Peñalver. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Botones flotantes -->
-  <a href="https://wa.me/3132056515" class="whatsapp-float" target="_blank" rel="noopener">
-    <img src="https://cdn.jsdelivr.net/gh/rafaelbotazini/floating-whatsapp/whatsapp-icon.png" alt="WhatsApp" />
-  </a>
-  <a href="https://www.chatbase.co/chatbot-iframe/eIrzI-2lWZ2UNDvJmKXhr" class="chatbot-float" target="_blank"
-    rel="noopener">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/chatbot.png" alt="Asistente Virtual" />
-    <span class="chatbot-label">¿Tienes dudas?</span>
-  </a>
+  <!-- Lógica para modo oscuro y scripts -->
+  <script>
+    // Modo oscuro funcional
+    const toggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    const themeIcon = document.getElementById('theme-icon');
 
+    // Inicializa según preferencia almacenada
+    if (localStorage.getItem('theme') === 'dark') {
+      root.classList.add('dark-mode');
+      if (toggle) toggle.checked = true;
+      if(themeIcon) themeIcon.textContent = "☀️";
+    } else {
+      root.classList.remove('dark-mode');
+      if(themeIcon) themeIcon.textContent = "🌙";
+    }
+
+    // Escucha cambios en el toggle
+    if (toggle) {
+      toggle.addEventListener('change', function () {
+        if (this.checked) {
+          root.classList.add('dark-mode');
+          localStorage.setItem('theme', 'dark');
+          if(themeIcon) themeIcon.textContent = "☀️";
+        } else {
+          root.classList.remove('dark-mode');
+          localStorage.setItem('theme', 'light');
+          if(themeIcon) themeIcon.textContent = "🌙";
+        }
+      });
+    }
+  </script>
   <script src="script.js"></script>
 </body>
-
 </html>
+  

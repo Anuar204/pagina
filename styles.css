@@ -1,4 +1,3 @@
-
 :root {
   --azul-oscuro: #1D3557;
   --cian: #00B4D8;
@@ -16,30 +15,27 @@ html {
 body {
   margin: 0;
   font-family: var(--fuente);
-  background-color: var(--blanco);
+  background: linear-gradient(135deg, #00b4d8 0%, #48cae4 100%);
+  min-height: 100vh;
   color: var(--negro);
-  
 }
 
+/* ==================== HERO ==================== */
 #hero {
-  /* Fondo azul nocturno con degradado */
   background: linear-gradient(120deg, #0b1d3a 0%, #23395d 100%);
   color: var(--blanco);
   text-align: center;
   padding: 100px 20px;
   border-radius: 0 0 15px 15px;
   position: relative;
-  overflow: hidden; /* Para que las estrellitas no sobresalgan */
+  overflow: hidden;
 }
-
-/* Estrellitas con pseudo-elemento */
 #hero::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   pointer-events: none;
   z-index: 0;
-  /* Patrón de estrellitas usando radial-gradient */
   background-image:
     radial-gradient(white 1px, transparent 1px),
     radial-gradient(white 1.2px, transparent 1.2px),
@@ -56,28 +52,49 @@ body {
   z-index: 1;
 }
 
+/* ==================== SERVICIOS ==================== */
+#servicios {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+#servicios h2 {
+  font-size: 2.2em;
+  color: #2a2a2a;
+  margin-bottom: 40px;
+  position: relative;
+}
 .servicios-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
-
 .servicios-grid article {
-  background-color: var(--gris);
-  color: var(--negro);
-  padding: 20px;
+  background-color: #ffffff;
   border-radius: 10px;
-  width: 300px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .servicios-grid article:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.servicios-grid h3 {
+  font-size: 1.4em;
+  color: #0077cc;
+  margin-bottom: 15px;
+}
+.servicios-grid p {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.6;
 }
 
+/* ==================== SOBRE ==================== */
 #sobre {
   background: linear-gradient(135deg, #1d3557 60%, #263559 100%);
   min-height: 430px;
@@ -129,185 +146,7 @@ body {
   letter-spacing: 0.5px;
   text-align: center;
 }
-@media (max-width: 680px) {
-  #sobre {
-    padding: 40px 3vw;
-    min-height: 0;
-  }
-  #sobre .sobre-card {
-    padding: 26px 7vw;
-    font-size: 1em;
-  }
-  #sobre .sobre-card h2 {
-    font-size: 1.3em;
-  }
-}
 
-/* Responsive para móviles */
-@media*
-
-/* ==================== Responsive: pantallas móviles ==================== */
-@media screen and (max-width: 768px) {
-  header nav ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  #hero {
-    padding: 60px 15px;
-  }
-
-  #hero h2 {
-    font-size: 2em;
-  }
-
-  .servicios-grid {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  #sobre, #contacto {
-    padding: 40px 15px;
-  }
-
-  form {
-    width: 100%;
-  }
-
-  footer {
-    font-size: 0.9em;
-  }
-}
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  width: 60px;
-  height: 60px;
-  background-color: #25D366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-
-.whatsapp-float img {
-  width: 32px;
-  height: 32px;
-}
-/* ==================== Botón Flotante Chatbot ==================== */
-.chatbot-float {
-  position: fixed;
-  bottom: 95px; /* Encima del botón de WhatsApp */
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #0078D4;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  z-index: 999;
-  transition: transform 0.2s ease;
-  animation: chatbotBounce 1s ease-in-out;
-}
-
-.chatbot-float:hover {
-  transform: scale(1.1);
-}
-
-.chatbot-float img {
-  width: 32px;
-  height: 32px;
-}
-
-/* ✨ Animación suave al aparecer */
-@keyframes chatbotBounce {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* 📱 Responsive: ajustar tamaño en pantallas pequeñas */
-@media screen and (max-width: 480px) {
-  .chatbot-float {
-    width: 50px;
-    height: 50px;
-    bottom: 85px;
-  }
-
-.chatbot-float {
-  position: fixed;
-  bottom: 95px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background-color: #0078D4;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-  z-index: 999;
-  transition: transform 0.2s ease;
-  animation: chatbotBounce 1s ease-in-out;
-  cursor: pointer;
-  text-decoration: none;
-  border: none;
-}
-
-.chatbot-float img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-
-.chatbot-float:hover {
-  transform: scale(1.08);
-  background-color: #1D3557;
-}
-
-.chatbot-label {
-  position: absolute;
-  right: 70px;
-  background-color: #0078D4;
-  color: #fff;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 15px;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-}
-
-.chatbot-float:hover .chatbot-label {
-  opacity: 1;
-}
-
-/* Solo mostrar la etiqueta en pantallas grandes */
-@media screen and (max-width: 768px) {
-  .chatbot-label {
-    display: none;
-  }
-}
 /* ==================== HEADER MODERNO ==================== */
 .main-header {
   background: linear-gradient(90deg, var(--azul-oscuro) 0%, var(--cian) 100%);
@@ -364,8 +203,6 @@ body {
 #menu-toggle {
   display: none;
 }
-
-/* Responsive: menú hamburguesa */
 @media (max-width: 900px) {
   .main-header .container {
     flex-direction: column;
@@ -373,8 +210,6 @@ body {
     gap: 10px;
   }
 }
-
-/* Responsive: menú desplegable en móvil */
 @media (max-width: 700px) {
   .main-header .container {
     flex-direction: row;
@@ -400,76 +235,97 @@ body {
     display: block;
   }
 }
-#servicios {
-  padding: 60px 20px;
-  background-color: #f9f9f9;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
+
+/* ==================== BOTONES FLOTANTES ==================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.whatsapp-float img {
+  width: 32px;
+  height: 32px;
 }
 
-#servicios h2 {
-  font-size: 2.2em;
-  color: #2a2a2a;
-  margin-bottom: 40px;
-  position: relative;
+.chatbot-float {
+  position: fixed;
+  bottom: 95px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #0078D4;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: transform 0.2s ease;
+  animation: chatbotBounce 1s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
 }
-
-.servicios-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
+.chatbot-float:hover {
+  transform: scale(1.1);
+  background-color: #1D3557;
 }
-
-.servicios-grid article {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 30px 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.chatbot-float img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
-
-.servicios-grid article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.servicios-grid h3 {
-  font-size: 1.4em;
-  color: #0077cc;
-  margin-bottom: 15px;
-}
-
-.servicios-grid p {
-  color: #555;
-  font-size: 1em;
-  line-height: 1.6;
-}
-
-@media (max-width: 600px) {
-  #servicios h2 {
-    font-size: 1.8em;
+@keyframes chatbotBounce {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
   }
-  .servicios-grid {
-    gap: 20px;
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.chatbot-label {
+  position: absolute;
+  right: 70px;
+  background-color: #0078D4;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 15px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+.chatbot-float:hover .chatbot-label {
+  opacity: 1;
+}
+/* Solo mostrar la etiqueta en pantallas grandes */
+@media screen and (max-width: 768px) {
+  .chatbot-label {
+    display: none;
   }
 }
 
-
-
-
-body {
-  /* Asegúrate de que tu body no tenga background repetido aquí */
-  background: linear-gradient(135deg, #00b4d8 0%, #48cae4 100%);
-  min-height: 100vh;
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-}
-
-
-
-/* Enlace profesional */
+/* ==================== ENLACE CITA ==================== */
 .enlace-cita {
   display: block;
   text-align: center;
@@ -489,13 +345,70 @@ body {
   color: #f0c674;
 }
 
-/* Responsive */
+/* ==================== FORM Y CONTACTO ==================== */
 @media (max-width: 600px) {
+  #servicios h2 {
+    font-size: 1.8em;
+  }
+  .servicios-grid {
+    gap: 20px;
+  }
   .form-card {
     padding: 18px 2vw 18px 2vw;
     max-width: 97vw;
   }
   #contacto h2 {
     font-size: 2em;
+  }
+}
+
+/* ==================== SOBRE Responsive ==================== */
+@media (max-width: 680px) {
+  #sobre {
+    padding: 40px 3vw;
+    min-height: 0;
+  }
+  #sobre .sobre-card {
+    padding: 26px 7vw;
+    font-size: 1em;
+  }
+  #sobre .sobre-card h2 {
+    font-size: 1.3em;
+  }
+}
+
+/* ==================== HERO Responsive ==================== */
+@media screen and (max-width: 768px) {
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  #hero {
+    padding: 60px 15px;
+  }
+  #hero h2 {
+    font-size: 2em;
+  }
+  .servicios-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+  #sobre, #contacto {
+    padding: 40px 15px;
+  }
+  form {
+    width: 100%;
+  }
+  footer {
+    font-size: 0.9em;
+  }
+}
+
+/* ==================== BOTONES FLOTANTES Responsive ==================== */
+@media screen and (max-width: 480px) {
+  .chatbot-float {
+    width: 50px;
+    height: 50px;
+    bottom: 85px;
   }
 }

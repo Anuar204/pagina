@@ -236,7 +236,6 @@ body {
   }
 }
 
-/* ==================== BOTONES FLOTANTES ==================== */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -244,67 +243,58 @@ body {
   z-index: 1000;
   width: 60px;
   height: 60px;
-  background-color: #25D366;
+  background: #25D366;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease;
-}
-.whatsapp-float:hover {
-  transform: scale(1.1);
+  transition: transform 0.2s;
 }
 .whatsapp-float img {
   width: 32px;
   height: 32px;
 }
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
 
 .chatbot-float {
   position: fixed;
-  bottom: 95px;
+  bottom: 95px; /* Encima del botón de WhatsApp */
   right: 20px;
   width: 60px;
   height: 60px;
-  background-color: #0078D4;
+  background: #0078D4;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
   z-index: 999;
-  transition: transform 0.2s ease;
-  animation: chatbotBounce 1s ease-in-out;
+  transition: transform 0.2s;
   cursor: pointer;
   text-decoration: none;
   border: none;
-}
-.chatbot-float:hover {
-  transform: scale(1.1);
-  background-color: #1D3557;
+  animation: chatbotBounce 1s ease-in-out;
 }
 .chatbot-float img {
   width: 32px;
   height: 32px;
-  object-fit: contain;
+}
+.chatbot-float:hover {
+  transform: scale(1.1);
+  background: #1D3557;
 }
 @keyframes chatbotBounce {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
 }
 .chatbot-label {
   position: absolute;
   right: 70px;
-  background-color: #0078D4;
+  background: #0078D4;
   color: #fff;
   padding: 6px 16px;
   border-radius: 20px;
@@ -320,9 +310,15 @@ body {
 }
 /* Solo mostrar la etiqueta en pantallas grandes */
 @media screen and (max-width: 768px) {
-  .chatbot-label {
-    display: none;
+  .chatbot-label { display: none; }
+}
+/* Responsive para pantallas pequeñas */
+@media screen and (max-width: 480px) {
+  .whatsapp-float, .chatbot-float {
+    width: 50px;
+    height: 50px;
   }
+  .chatbot-float { bottom: 85px; }
 }
 
 /* ==================== ENLACE CITA ==================== */
